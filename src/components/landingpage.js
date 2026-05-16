@@ -655,54 +655,6 @@ function HowItWorks() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────
-   PRICING
-───────────────────────────────────────────────────────────── */
-function PricingSection({ onLaunch }) {
-  const plans = [
-    { name: "Free", price: "₹0", period: "/month", sub: "Basic monitoring to get started", featured: false,
-      features: ["Addiction score dashboard", "3 app monitoring slots", "Daily usage summary", "Basic alerts (2 types)"],
-      missing: ["AI recommendations", "Smart alerts (all 6)", "PDF reports", "Heatmap analytics"],
-      btn: { label: "Get Started Free", style: { background: "var(--bg)", border: "2px solid var(--border)", color: "var(--text)", borderRadius: 10, padding: "12px" } } },
-    { name: "Pro", price: "₹299", period: "/month", sub: "Full AI-powered addiction management", featured: true, badge: "Most Popular",
-      features: ["Everything in Free", "Unlimited app monitoring", "All 6 alert types (push + email)", "AI recommendation engine", "Weekly PDF reports", "28-cell usage heatmap", "Score trend analytics"],
-      missing: [],
-      btn: { label: "Start 14-Day Trial", style: { background: "var(--orange)", color: "#fff", border: "none", borderRadius: 10, padding: "12px" } } },
-    { name: "Institution", price: "₹999", period: "/month", sub: "For schools, colleges & corporates", featured: false,
-      features: ["Everything in Pro", "Up to 500 user accounts", "Admin dashboard", "Group analytics & reports", "Priority support + onboarding", "Custom alert rules"],
-      missing: [],
-      btn: { label: "Contact Sales", style: { background: "var(--navy)", color: "#fff", border: "none", borderRadius: 10, padding: "12px" } } },
-  ];
-  return (
-    <section className="pricing-section" id="pricing">
-      <div className="container-xl">
-        <div className="text-center mb-5">
-          <div className="section-eyebrow">Pricing</div>
-          <h2 className="section-h2 mb-3">Simple, transparent <span style={{ color: "var(--teal)" }}>pricing</span></h2>
-          <p className="section-sub mx-auto">Start free. Upgrade when you need more. Cancel anytime.</p>
-        </div>
-        <div className="row gy-4 align-items-stretch">
-          {plans.map((p, i) => (
-            <div key={i} className="col-md-4">
-              <div className={`price-card h-100 ${p.featured ? "featured" : ""}`}>
-                {p.badge && <div className="price-badge">{p.badge}</div>}
-                <h3 className="syne" style={{ fontWeight: 800, fontSize: "1.15rem", marginBottom: 8, color: p.featured ? "#fff" : "var(--text)" }}>{p.name}</h3>
-                <div className="d-flex align-items-end gap-1 mb-1">
-                  <span className="price-amt">{p.price}</span>
-                  <span style={{ fontSize: ".85rem", color: p.featured ? "rgba(255,255,255,.6)" : "var(--muted)", marginBottom: 4 }}>{p.period}</span>
-                </div>
-                <p style={{ fontSize: ".85rem", color: p.featured ? "rgba(255,255,255,.6)" : "var(--muted)", marginBottom: 16 }}>{p.sub}</p>
-                {p.features.map((f, j) => <div key={j} className="pf-item"><FiCheck size={14} color="var(--teal)" />{f}</div>)}
-                {p.missing.map((f, j) => <div key={j} className="pf-item" style={{ opacity: .45 }}><FiX size={14} />{f}</div>)}
-                <button className="btn-price" style={p.btn.style} onClick={onLaunch}>{p.btn.label}</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────────
    TESTIMONIALS
@@ -899,8 +851,7 @@ export default function LandingPage() {
       {/* HOW IT WORKS */}
       <HowItWorks />
 
-      {/* PRICING */}
-      <PricingSection onLaunch={() => onGoToDashboard(demoData)} />
+    
 
       {/* TESTIMONIALS */}
       <TestimonialsSection />
